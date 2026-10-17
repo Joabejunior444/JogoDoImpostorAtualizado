@@ -1,0 +1,107 @@
+html, body { position: fixed; inset: 0; overflow: hidden; }
+:root {
+    --safe-bottom: env(safe-area-inset-bottom, 20px);
+    --ink: #071322;
+    --panel: #0d1b2c;
+    --panel-raised: #142740;
+    --accent: #45b8f2;
+    --accent-light: #b3e7ff;
+    --mint: #63c9e2;
+    --line: rgba(84, 170, 235, 0.22);
+}
+
+body {
+    background-color: var(--ink);
+    background-image:
+        radial-gradient(ellipse at 12% 8%, rgba(31, 103, 166, 0.3), transparent 36rem),
+        radial-gradient(ellipse at 92% 88%, rgba(34, 143, 191, 0.16), transparent 32rem),
+        linear-gradient(145deg, #071322 0%, #0b1b30 52%, #101c2b 100%);
+    color: #f8fafc;
+    -webkit-tap-highlight-color: transparent; 
+    touch-action: none;
+    height: 100%; width: 100%; 
+    user-select: none; -webkit-user-select: none;
+}
+
+#root > div > div.fixed.inset-0 {
+    background-color: var(--ink) !important;
+    background-image:
+        linear-gradient(rgba(84, 170, 235, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(84, 170, 235, 0.15) 1px, transparent 1px),
+        radial-gradient(ellipse at 12% 8%, rgba(31, 103, 166, 0.3), transparent 36rem),
+        radial-gradient(ellipse at 92% 88%, rgba(34, 143, 191, 0.16), transparent 32rem),
+        linear-gradient(145deg, #071322 0%, #0b1b30 52%, #101c2b 100%);
+    background-size: 36px 36px, 36px 36px, auto, auto, auto;
+}
+
+img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+
+.glass-panel {
+    background: linear-gradient(145deg, rgba(18, 38, 60, 0.97), rgba(10, 24, 42, 0.98));
+    border: 1px solid var(--line);
+    border-radius: 1.35rem !important;
+    box-shadow: 0 20px 48px -24px rgba(0, 0, 0, 0.9), inset 0 1px rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(12px);
+}
+
+.glass-panel-lighter {
+    background: linear-gradient(145deg, rgba(29, 52, 77, 0.9), rgba(18, 37, 60, 0.92));
+    border: 1px solid rgba(84, 170, 235, 0.16);
+}
+
+.blob {
+    display: block !important;
+    border-radius: 9999px;
+    filter: blur(55px);
+    opacity: 0.14;
+    pointer-events: none;
+}
+
+[class*="text-brand-"] { color: var(--accent-light) !important; }
+[class*="text-teal-"] { color: var(--mint) !important; }
+[class~="bg-brand-400"], [class~="bg-brand-500"] { background-color: var(--accent) !important; }
+[class~="bg-brand-600"] { background-color: #2088d0 !important; }
+[class*="bg-brand-500/"], [class*="bg-brand-600/"], [class*="bg-brand-900/"] {
+    background-color: rgba(69, 184, 242, 0.15) !important;
+}
+[class*="bg-teal-"] { background-color: rgba(99, 201, 226, 0.13) !important; }
+[class*="border-brand-"] { border-color: rgba(69, 184, 242, 0.42) !important; }
+[class*="border-teal-"] { border-color: rgba(99, 201, 226, 0.34) !important; }
+[class*="from-brand-"] { --tw-gradient-from: var(--accent) var(--tw-gradient-from-position) !important; }
+[class*="to-fuchsia-"] { --tw-gradient-to: #59d1e7 var(--tw-gradient-to-position) !important; }
+
+button:not([class*="rounded-full"]) { border-radius: 1rem !important; }
+button.bg-white {
+    background: linear-gradient(135deg, #9de0ff, #3ba9e8) !important;
+    color: #071a2d !important;
+    box-shadow: 0 12px 28px rgba(59, 169, 232, 0.23) !important;
+}
+button.bg-white:hover { filter: brightness(1.07); }
+input, select, textarea {
+    color: #f3f4e9;
+    caret-color: var(--accent);
+}
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid rgba(69, 184, 242, 0.52);
+    outline-offset: 2px;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Classes para o efeito 3D da Carta */
+.perspective-1000 { perspective: 1000px; }
+.transform-style-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+
+.timer-slider::-webkit-slider-runnable-track { 
+    width: 100%; height: 6px; cursor: pointer; 
+    background: rgba(84, 170, 235, 0.22); border-radius: 9999px; 
+}
+.timer-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; margin-top: -11px; height: 28px; width: 28px;
+    background: radial-gradient(circle at 35% 30%, #b8eaff, #258bc9);
+    border: 4px solid #142740; cursor: pointer; border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(69, 184, 242, 0.65), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
